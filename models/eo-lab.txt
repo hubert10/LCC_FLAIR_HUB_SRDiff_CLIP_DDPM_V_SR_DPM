@@ -1,0 +1,16 @@
+
+
+chmod 400 /home/kanyamahanga/.ssh/Hubert2.pem
+
+ssh -v -i /home/kanyamahanga/.ssh/Hubert2.pem eouser@74.63.0.58
+
+
+scp -i /home/kanyamahanga/.ssh/hkeys.pem eouser@74.63.0.58:/home/eouser/exp_2026/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_EOLAB/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt/model_ckpt_steps_150000.ckpt ./
+
+
+scp -i /home/kanyamahanga/.ssh/hkeys.pem eouser@74.63.0.58:/my_data/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM/results/checkpoints/misr/srdiff_maxvit_ltae_ckpt/results_0_/metrics_misr-s2-aer-seg/AERIAL_LABEL-COSIA/metrics.json /data/share/kanyamahanga
+
+
+# Eo-Lab: This command mounts the remote directory /tuan_storage from the server 74.63.3.87 onto your local /tuan_storage directory using SSHFS:
+
+# sudo sshfs eouser@74.63.7.39:/my_data /my_data -o _netdev,user,idmap=user,allow_other,default_permissions,uid=1000,gid=1000,IdentityFile=/home/eouser/.ssh/eolab_private,umask=000
