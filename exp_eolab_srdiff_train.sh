@@ -13,17 +13,17 @@
 # source load_modules.sh
 
 # export CONDA_ENVS_PATH=$HOME/miniconda3/envs
-# DATA_DIR="/my_data/"
+# DATA_DIR="/hubert_storage/"
 # export DATA_DIR
 # source ~/miniconda3/etc/profile.d/conda.sh
-# conda activate /my_data/flair_venv
+# conda activate /hubert_storage/flair_venv
 # which python
 # cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
 # python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --reset
 
 
 export CONDA_ENVS_PATH=$HOME/.conda/envs
-DATA_DIR="/my_data/"
+DATA_DIR="/hubert_storage/"
 export DATA_DIR
 source /home/eouser/flair_venv/bin/activate
 which python
