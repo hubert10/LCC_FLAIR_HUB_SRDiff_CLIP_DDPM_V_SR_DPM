@@ -165,6 +165,7 @@ class Trainer:
             return total, trainable
 
         # Parameter counts
+        cond_clip_total, cond_clip_train = count_params(model.gaussian.cond_stage_model)
         cond_total, cond_train = count_params(model.gaussian.cond_net)
         denoise_total, denoise_train = count_params(model.gaussian.denoise_net)
         sits_enc_total, sits_enc_train = count_params(model.sr_sits_enc)
@@ -174,7 +175,8 @@ class Trainer:
         fusion_total, fusion_train = count_params(model.fusion_module)
 
         total_params = (
-            cond_total
+            cond_clip_total
+            + cond_total
             + denoise_total
             + sits_enc_total
             + sits_dec_total
@@ -184,7 +186,8 @@ class Trainer:
         )
 
         total_trainable = (
-            cond_train
+            cond_clip_train
+            + cond_train
             + denoise_train
             + sits_enc_train
             + sits_dec_train
@@ -212,7 +215,14 @@ class Trainer:
         )
 
         rows = [
-            ("Conditioning", "cond_net", "conditioning net", cond_total, cond_train),
+            (
+                "Cond. CLIP Net",
+                "cond_clip_net",
+                "conditioning net",
+                cond_clip_total,
+                cond_clip_train,
+            ),
+            ("Cond. Net", "cond_net", "conditioning net", cond_total, cond_train),
             ("Denoising", "denoise_net", "denoising net", denoise_total, denoise_train),
             (
                 "SITS Encoder",
