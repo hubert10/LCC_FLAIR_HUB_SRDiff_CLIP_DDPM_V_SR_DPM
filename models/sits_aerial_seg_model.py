@@ -11,6 +11,7 @@ from models.encoders.t_convformer import TConvFormer
 from models.decoders.unet_sat_decoder import UNetSatDecoder
 from models.decoders.unet_aer_decoder import UNetAerDecoder
 
+
 class SITSAerialSegmenter(nn.Module):
     def __init__(self, gaussian, config):
         super().__init__()
@@ -79,16 +80,16 @@ class SITSAerialSegmenter(nn.Module):
 
         # 3. SR-SITS Decoder from U-NetFormer paper (USED ON DURING TRAINING)
 
-
         # 3. SR-SITS Decoder from U-NetFormer paper (USED ON DURING TRAINING)
         self.sr_sits_dec = UNetSatDecoder(
             encoder_channels,
-            config["models"]["maxvit"]["decoder_channels"], #  remove the last channels dim.
+            config["models"]["maxvit"][
+                "decoder_channels"
+            ],  #  remove the last channels dim.
             config["models"]["maxvit"]["dropout"],
             config["models"]["maxvit"]["window_cond_size"],
-            config["inputs"]["num_classes"]
+            config["inputs"]["num_classes"],
         )
-
 
         # 4. Aerial Decoder from U-Net Former paper
         self.aer_net_dec = UNetAerDecoder(
