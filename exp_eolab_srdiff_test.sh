@@ -22,10 +22,21 @@
 # python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
  
 
-export CONDA_ENVS_PATH=$HOME/.conda/envs
+# export CONDA_ENVS_PATH=$HOME/.conda/envs
+# DATA_DIR="/hubert_storage/"
+# export DATA_DIR
+# source /home/eouser/flair_venv/bin/activate
+# which python
+# cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
+# python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --reset
+
+
+export CONDA_ENVS_PATH=$HOME/miniconda3/envs
 DATA_DIR="/hubert_storage/"
 export DATA_DIR
-source /home/eouser/flair_venv/bin/activate
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate /hubert_storage/flair_venv
 which python
-cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
-python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --reset
+cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM
+python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
+
