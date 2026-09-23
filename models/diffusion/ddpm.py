@@ -105,11 +105,11 @@ class GaussianDiffusion(nn.Module):
         # for satelite image time series integration
         self.cond_net = cond_net
 
-        for name, param in self.cond_net.named_parameters():
-            if "attn" not in name:
-                param.requires_grad = False
-            else:
-                param.requires_grad = False
+        # for name, param in self.cond_net.named_parameters():
+        #     if "attn" not in name:
+        #         param.requires_grad = False
+        #     else:
+        #         param.requires_grad = True
 
         self.cond_stage_forward = cond_stage_forward
 
@@ -119,7 +119,7 @@ class GaussianDiffusion(nn.Module):
             if "attn" not in name:
                 param.requires_grad = False
             else:
-                param.requires_grad = False
+                param.requires_grad = True
 
         # Setup the CLIP model - use pretrained weights
         self.cond_stage_model = FrozenOpenCLIPEmbedder(hparams)
