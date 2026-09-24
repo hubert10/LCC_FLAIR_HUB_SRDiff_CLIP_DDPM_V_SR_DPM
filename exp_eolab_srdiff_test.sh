@@ -1,5 +1,5 @@
 #!/bin/bash 
-# #SBATCH --job-name=exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_test
+# #SBATCH --job-name=exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_test
 # #SBATCH --nodes=1
 # #SBATCH --ntasks-per-node=1
 # #SBATCH --gres=gpu:a100m40:1
@@ -8,8 +8,8 @@
 # #SBATCH --time=48:00:00
 # #SBATCH --mail-user=kanyamahanga@ipi.uni-hannover.de
 # #SBATCH --mail-type=BEGIN,END,FAIL
-# #SBATCH --output logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_test_%j.out
-# #SBATCH --error logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_test_%j.err
+# #SBATCH --output logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_test_%j.out
+# #SBATCH --error logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_test_%j.err
 # source load_modules.sh
 
 # export CONDA_ENVS_PATH=$HOME/miniconda3/envs
@@ -18,8 +18,8 @@
 # source ~/miniconda3/etc/profile.d/conda.sh
 # conda activate /hubert_storage/flair_venv
 # which python
-# cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
-# python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
+# cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM
+# python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
  
 
 # export CONDA_ENVS_PATH=$HOME/.conda/envs
@@ -27,7 +27,7 @@
 # export DATA_DIR
 # source /home/eouser/flair_venv/bin/activate
 # which python
-# cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
+# cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM
 # python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --reset
 
 

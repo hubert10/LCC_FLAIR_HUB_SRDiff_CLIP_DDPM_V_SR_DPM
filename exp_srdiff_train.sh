@@ -1,5 +1,5 @@
 #!/bin/bash 
-#SBATCH --job-name=exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_train
+#SBATCH --job-name=exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_train
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -9,13 +9,13 @@
 #SBATCH --time=48:00:00
 #SBATCH --mail-user=kanyamahanga@ipi.uni-hannover.de
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_train_%j.out
-#SBATCH --error logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM_train_%j.err
+#SBATCH --output logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_train_%j.out
+#SBATCH --error logs/exp_LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM_train_%j.err
 source load_modules.sh
 export CONDA_ENVS_PATH=$HOME/.conda/envs
 export DATA_DIR=$BIGWORK
 conda activate flair_venv
 which python
-cd $HOME/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM
-# srun python trainer.py --config configs/diffsr_maxvit_ltae.yaml --config_file flair-config-server.yml --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=/bigwork/nhgnkany/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_DPM/results/checkpoints/misr/highresnet_ltae_ckpt" --reset
+cd $HOME/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM
+# srun python trainer.py --config configs/diffsr_maxvit_ltae.yaml --config_file flair-config-server.yml --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=/bigwork/nhgnkany/Results/LCC_FLAIR_HUB_SRDiff_CLIP_DDPM_V_SR_PDM/results/checkpoints/misr/highresnet_ltae_ckpt" --reset
 srun python trainer.py --config configs/diffsr_maxvit_ltae.yaml --config_file flair-config-server.yml --exp_name misr/srdiff_maxvit_ltae_ckpt --hparams="cond_net_ckpt=/bigwork/nhgnkany/pretrain_weights/MISR_JOINT_SRDiff_HIGHRESNET_PRETRAINED/results/checkpoints/misr/maxvit_ltae_ckpt" --reset
