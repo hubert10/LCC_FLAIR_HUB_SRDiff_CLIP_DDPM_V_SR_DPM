@@ -3,7 +3,7 @@ import rasterio
 import numpy as np
 
 try:
-    DATA_DIR = "/my_data"
+    DATA_DIR = "/hubert_storage"
 except Exception:
     DATA_DIR = "D:\kanyamahanga\Datasets"
 
