@@ -153,7 +153,7 @@ class SRDiffTrainer(Trainer):
         dates = sample["dates_encoding"]
         closest_idx = sample["closest_idx"]  # torch.Size([4, 2, 3, 64, 64])
 
-        print("--------------------img_lr-------------------------:", img_lr.shape)
+        # print("--------------------img_lr-------------------------:", img_lr.shape)
 
         # print("img_lr:", img_lr.shape)
         # print("img_lr_up:", img_lr_up.shape)
