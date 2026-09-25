@@ -14,7 +14,7 @@
 
 
 # export CONDA_ENVS_PATH=$HOME/.conda/envs
-# DATA_DIR="/hubert_storage/"
+# DATA_DIR="/my_data/"
 # export DATA_DIR
 # source /home/eouser/flair_venv/bin/activate
 # which python
