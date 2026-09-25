@@ -112,14 +112,15 @@ class GaussianDiffusion(nn.Module):
                 param.requires_grad = False
 
         self.cond_stage_forward = cond_stage_forward
-
+        # eval() controls the behavior of modules such as Dropout and BatchNorm.
         self.denoise_net.eval()
         # self.model.train = disabled_train
         for name, param in self.denoise_net.named_parameters():
             if "attn" not in name:
-                param.requires_grad = False
-            else:
                 param.requires_grad = True
+            else:
+                # requires_grad=True controls whether PyTorch computes gradients for those parameters.
+                param.requires_grad = False
 
         # Setup the CLIP model - use pretrained weights
         self.cond_stage_model = FrozenOpenCLIPEmbedder(hparams)
